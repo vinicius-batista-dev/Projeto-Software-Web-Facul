@@ -6,7 +6,9 @@ import Services from './components/servicos/services';
 function App() {
   return (
     <div className="App">
-      
+      <Home />
+      <Nav />
+      <Services />
     </div>
   );
 }
