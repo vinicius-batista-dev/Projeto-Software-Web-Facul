@@ -3,10 +3,10 @@
 
 <!-- PALAVRAS CHAVES  -->
 
-##npm
-##mvn
-##java
-##MySql
+*npm
+*mvn
+*java
+*MySql
 
 <!-- TABELA DE CONTEUDO -->
 ## Tabela de Conteúdo
