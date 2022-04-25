@@ -1,7 +1,6 @@
 # Projeto-Desenvolvimento-Software-Web
 
-
-<!-- PALAVRAS CHAVES -->
+## PALAVRAS CHAVES 
 
 *npm
 *mvn
