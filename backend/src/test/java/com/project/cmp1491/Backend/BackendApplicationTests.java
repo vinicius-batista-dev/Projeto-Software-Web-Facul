@@ -1,10 +1,10 @@
-package com.project.backend.pedidoreserva;
+package com.project.cmp1491.Backend;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class PedidoreservaApplicationTests {
+class BackendApplicationTests {
 
 	@Test
 	void contextLoads() {

@@ -8,10 +8,10 @@
 		<version>2.6.7</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.project.backend</groupId>
-	<artifactId>pedidoreserva</artifactId>
+	<groupId>com.project.cmp1491</groupId>
+	<artifactId>Backend</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>pedidoreserva</name>
+	<name>Backend</name>
 	<description>Projeto Final para a materia Desenvolvimento de Software Web</description>
 	<properties>
 		<java.version>11</java.version>

@@ -1,13 +1,13 @@
-package com.project.backend.pedidoreserva;
+package com.project.cmp1491.Backend;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class PedidoreservaApplication {
+public class BackendApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(PedidoreservaApplication.class, args);
+		SpringApplication.run(BackendApplication.class, args);
 	}
 
 }
