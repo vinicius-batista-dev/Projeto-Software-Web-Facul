@@ -1,15 +1,17 @@
 package com.project.cmp1491.Backend.entidade;
 
 import javax.persistence.*;
-
+//Marca uma classe como uma entidade persistente
 @Entity
-//Nome da tabela pedido
 @Table(name = "pedido")
+//Informa o nome da tabela que será mapeada a classe em questão
 public class Pedido {
 
     @Column(name = "id")
     @Id
+    //Marca o atributo como identificador da classe
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+   //Define a estratégia de incremento de um atributo
     private Integer id;
 
     @Column(name = "nome-do-cliente")
