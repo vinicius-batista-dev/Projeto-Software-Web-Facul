@@ -1,6 +1,7 @@
 package com.project.cmp1491.Backend.negocio;
 
 import com.project.cmp1491.Backend.entidade.Pedido;
+import com.project.cmp1491.Backend.util.PedidoBackEndExcepetion;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -14,6 +15,7 @@ public class PedidoServiceImpl implements PedidoService{
 
     private final PedidoRespository repository;
 
+  //Injecao de depndencia da variavel
     @Autowired
     public PedidoServiceImpl(PedidoRespository repository) {
         this.repository = repository;
@@ -22,11 +24,11 @@ public class PedidoServiceImpl implements PedidoService{
     @Override
     public Pedido incluir(Pedido pedido) {
         try{
-
+            repository.save(pedido);
+            return pedido;
         }catch (Exception err){
-
+            throw new PedidoBackEndExcepetion("Nao foi possivel incluir");
         }
-        return null;
     }
 
     @Override
