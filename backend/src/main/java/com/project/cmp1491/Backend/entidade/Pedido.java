@@ -1,6 +1,5 @@
 package com.project.cmp1491.Backend.entidade;
 
-
 import javax.persistence.*;
 
 @Entity
