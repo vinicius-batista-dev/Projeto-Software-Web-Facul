@@ -8,7 +8,7 @@
 *MySql
 
 <!-- PROJETO CONTEUDO -->
-## PEDIDO CLIENTE ##
+## SERVICE - BACKEND ##
 
 <p>Respeitando as camadas do projeto. </p>
 
