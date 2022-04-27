@@ -8,4 +8,5 @@ public interface PedidoService {
     public Pedido incluir(Pedido pedido);
     public List<Pedido>listar();
     public Pedido consultar(Integer id);
+    public void alterar(Pedido pedido);
 }
