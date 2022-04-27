@@ -7,4 +7,5 @@ import java.util.List;
 public interface PedidoService {
     public Pedido incluir(Pedido pedido);
     public List<Pedido>listar();
+    public Pedido consultar(Integer id);
 }
