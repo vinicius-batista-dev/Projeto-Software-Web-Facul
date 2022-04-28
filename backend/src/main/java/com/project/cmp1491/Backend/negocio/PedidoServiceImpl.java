@@ -1,7 +1,7 @@
 package com.project.cmp1491.Backend.negocio;
 
 import com.project.cmp1491.Backend.entidade.Pedido;
-import com.project.cmp1491.Backend.util.PedidoBackEndExcepetion;
+import com.project.cmp1491.Backend.util.PedidoBackendException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -27,7 +27,7 @@ public class PedidoServiceImpl implements PedidoService{
             repository.save(pedido);
             return pedido;
         }catch (Exception err){
-            throw new PedidoBackEndExcepetion("Nao foi possivel incluir");
+            throw new PedidoBackendException("Nao foi possivel incluir");
         }
     }
 
