@@ -1,20 +1,16 @@
 import { Component } from "react";
-import TextField from "@mui/material/TextField";
+import { TextField } from "@mui/material";
+import Input from "@mui/material";
+import MaskInput from "../Validacao/MaskInput";
 
-class FormServiceMaterialComponent extends Component{
-    constructor(props){
-        super(props);
-        this.state = {
-            id: '',
-            nome: '',
-            endereco: '',
-            cidade: '',
-            estado: '',
-            telefone: '',
-            mobile: '',
-            cpf: '',
-            nomeVazio: false,
-            cidade: false
-        }
-    }
+import React from 'react'
+
+function FormService() {
+  return (
+    <div className="App">
+        <MaskInput />
+    </div>
+  )
 }
+
+export default FormService
