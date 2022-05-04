@@ -4,7 +4,7 @@ const url = 'http://localhost:8080';
 
 axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
 
-class ApiServer{
+class ApiService{
     listarPedidos(){
         return axios.get(url + '/listar-pedidos')
     }
@@ -18,3 +18,5 @@ class ApiServer{
         return axios.delete(url + '/excluir-pedido/' + pedidoId);
     }
 }
+
+export default new ApiService();
