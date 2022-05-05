@@ -20,8 +20,16 @@
   
  ### Features
  
+## Client
 - [x] Cadastro do cliente
 - [ ] Cadastro do pedido
+
+## Rest
+- [x] controller
+- [x] entidade
+- [x] negocio
+- [x] persistencia
+- [x] util
 
 ## Fork
 
