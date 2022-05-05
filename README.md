@@ -35,7 +35,7 @@
 ## Fork
 
   - Faça um fork do projeto aqui se voce quiser mexer com java https://github.com/vinicius-batista-dev/Projeto-Software-Web-Facul.git
-  - Faça um fork do projeto aqui se voce quiser mexer com nodejs https://github.com/vinicius-batista-dev/Projeto-Software-Web-Facul.git
+  - Faça um fork do projeto aqui se voce quiser mexer com nodejs clona com a branch devnodejs https://github.com/vinicius-batista-dev/Projeto-Software-Web-Facul.git
   - Crie uma branch para a sua contribuição. Exemplo: git checkout -b contribuicao/MinhaContribuicao
   - Para iniciar o servidor das documentações, rode: cd website && npm install && npm start
   - Procure pelo arquivo .md
