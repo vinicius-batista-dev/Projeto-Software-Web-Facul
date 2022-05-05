@@ -1,6 +1,7 @@
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom'
 import React from 'react'
 import FormService from '../Form/FormService'
+import Home from '../Form/Home'
 
 const AppRouter = () => {
     return (
@@ -8,7 +9,8 @@ const AppRouter = () => {
             <Router>
                 <div className="col-md-6">
                     <Routes>
-                        <Route path="/formulario-de-pedido" element={<FormService />}></Route>
+                        <Route path='/' element={<Home />}></Route>
+                        <Route path="/formpedido" element={<FormService />}></Route>
                     </Routes>
                 </div>
             </Router>
