@@ -22,6 +22,7 @@
  
 ## Client
 - [x] Cadastro do cliente
+- [x] Json do cadastro pedido 
 - [ ] Cadastro do pedido
 
 ## Rest
