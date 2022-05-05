@@ -1,38 +1,38 @@
 package com.project.cmp1491.Backend.entidade;
 
 import javax.persistence.*;
-//Marca uma classe como uma entidade persistente
 @Entity
+//Indica ao Spring que esta é uma classe de Entidade
 @Table(name = "pedido")
-//Informa o nome da tabela que será mapeada a classe em questão
+//Nome da tabela no banco de dados que sera mapeada nesse Objeto, ou seja objeto pedidos
 public class Pedido {
 
     @Column(name = "id")
     @Id
-    //Marca o atributo como identificador da classe
+    //Indica o atributo que é chave primaria da tabela PK
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-   //Define a estratégia de incremento de um atributo
+    //Indica a geracao automatica e sequencial do campo
     private Integer id;
 
-    @Column(name = "nome-do-cliente")
+    @Column(name = "nomecliente")
     private String nomecliente;
 
-    @Column(name = "endereco-do-cliente")
+    @Column(name = "enderecoliente")
     private String enderecocliente;
 
-    @Column(name = "cidade-do-cliente")
+    @Column(name = "cidadecliente")
     private String cidadecliente;
 
-    @Column(name = "estado-do-cliente")
+    @Column(name = "estadocliente")
     private String estadocliente;
 
-    @Column(name = "telefone-fixo")
+    @Column(name = "telefonecliente")
     private Integer telefonefixo;
 
-    @Column(name = "mobile")
+    @Column(name = "mobilecliente")
     private Integer mobile;
 
-    @Column(name = "cpf")
+    @Column(name = "cpfcliente")
     private Integer cpf;
 
     public Integer getId() {

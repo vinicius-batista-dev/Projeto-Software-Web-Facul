@@ -44,6 +44,7 @@ class FormService extends Component {
               </Typography>
 
             <br />
+
               <form>
 
                 <Grid container spacing={2}>
@@ -53,7 +54,6 @@ class FormService extends Component {
                       label="Nome"
                       variant="outlined"
                       fullWidth
-                      required
                     />
                   </Grid>
                   <Grid xs={12} sm={6} item>
@@ -62,7 +62,6 @@ class FormService extends Component {
                       label="Sobrenome"
                       variant="outlined"
                       fullWidth
-                      required
                     />
                   </Grid>
                   <Grid xs={12} sm={6} item>
@@ -72,7 +71,6 @@ class FormService extends Component {
                       label="Endereço"
                       variant="outlined"
                       fullWidth
-                      required
                     />
                   </Grid>
                   <Grid xs={12} sm={6} item>
@@ -84,7 +82,6 @@ class FormService extends Component {
                       name="mobileno"
                       mask="000 000 0000"
                       fullWidth
-                      required
                     />
                   </Grid>
                   <Grid xs={12} sm={6} item>

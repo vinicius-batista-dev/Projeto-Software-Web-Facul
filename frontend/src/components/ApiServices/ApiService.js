@@ -2,7 +2,7 @@ import axios from "axios"
 
 const url = 'http://localhost:8080';
 
-axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
+axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*'; //ativar cors
 
 class ApiService{
     listarPedidos(){
