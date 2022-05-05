@@ -9,8 +9,8 @@ const AppRouter = () => {
             <Router>
                 <div className="col-md-6">
                     <Routes>
-                        <Route path='/' element={<Home />}></Route>
-                        <Route path="/formpedido" element={<FormService />}></Route>
+                        <Route path='/home' element={<Home />}></Route>
+                        <Route path="/form-pedido" element={<FormService />}></Route>
                     </Routes>
                 </div>
             </Router>

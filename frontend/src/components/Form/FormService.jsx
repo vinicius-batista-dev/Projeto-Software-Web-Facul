@@ -14,6 +14,7 @@ import "../estilo/style.css";
 import { cpfMask } from "../Validator/cpfMask";
 
 class FormService extends Component {
+ 
   constructor(props) {
     super(props);
 
@@ -24,6 +25,7 @@ class FormService extends Component {
   handlechange(e) {
     this.setState({ documentId: cpfMask(e.target.value) });
   }
+
 
   render() {
     const { documentId } = this.state;
@@ -76,9 +78,11 @@ class FormService extends Component {
                   <Grid xs={12} sm={6} item>
                     <TextField
                       type="number"
-                      placeholder="Entre com o seu celular"
+                      placeholder="062 123456789"
                       label="Celular"
                       variant="outlined"
+                      name="mobileno"
+                      mask="000 000 0000"
                       fullWidth
                       required
                     />
@@ -95,10 +99,12 @@ class FormService extends Component {
                   <Grid xs={12} sm={6} item>
                     <TextField
                       maxWidth="14"
-                      type="number"
+                      type="text"
                       placeholder="CPF"
                       label="CPF"
-                      variant="outlined"
+                      name="documentId"
+                      value={documentId}
+                      onChange={this.handlechange}
                       fullWidth
                     />
                   </Grid>
