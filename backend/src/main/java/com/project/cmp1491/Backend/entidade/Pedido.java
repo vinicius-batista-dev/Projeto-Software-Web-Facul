@@ -1,39 +1,45 @@
 package com.project.cmp1491.Backend.entidade;
+import org.hibernate.validator.constraints.br.CPF;
 
 import javax.persistence.*;
-//Marca uma classe como uma entidade persistente
+import javax.validation.constraints.Pattern;
+import java.util.Objects;
+
 @Entity
+//Indica ao Spring que esta é uma classe de Entidade
 @Table(name = "pedido")
-//Informa o nome da tabela que será mapeada a classe em questão
+//Nome da tabela no banco de dados que sera mapeada nesse Objeto, ou seja objeto pedidos
 public class Pedido {
 
     @Column(name = "id")
     @Id
-    //Marca o atributo como identificador da classe
+    //Indica o atributo que é chave primaria da tabela PK
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-   //Define a estratégia de incremento de um atributo
+    //Indica a geracao automatica e sequencial do campo
     private Integer id;
 
-    @Column(name = "nome-do-cliente")
-    private String nomecliente;
+    @Column(nullable = false, name = "nome")
+    private String nome;
 
-    @Column(name = "endereco-do-cliente")
-    private String enderecocliente;
+    @Column(nullable = false, name = "sobrenome")
+    private String sobrenome;
 
-    @Column(name = "cidade-do-cliente")
-    private String cidadecliente;
+    @Column(nullable = false, name = "endereco")
+    private String endereco;
 
-    @Column(name = "estado-do-cliente")
-    private String estadocliente;
+    @Column(nullable = false, name = "cidade")
+    private String cidade;
 
-    @Column(name = "telefone-fixo")
-    private Integer telefonefixo;
+    @Column(nullable = false, name = "estado")
+    private String estado;
 
-    @Column(name = "mobile")
-    private Integer mobile;
+    @Column(nullable = false, name = "celular", length = 11)
+    private String celular;
 
-    @Column(name = "cpf")
-    private Integer cpf;
+    @CPF
+    @Column(nullable = false, name = "cpf")
+    private String cpf;
+
 
     public Integer getId() {
         return id;
@@ -43,59 +49,60 @@ public class Pedido {
         this.id = id;
     }
 
-    public String getNomecliente() {
-        return nomecliente;
+    public String getNome() {
+        return nome;
     }
 
-    public void setNomecliente(String nomecliente) {
-        this.nomecliente = nomecliente;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
-    public String getEnderecocliente() {
-        return enderecocliente;
+    public String getSobrenome() {
+        return sobrenome;
     }
 
-    public void setEnderecocliente(String enderecocliente) {
-        this.enderecocliente = enderecocliente;
+    public void setSobrenome(String sobrenome) {
+        this.sobrenome = sobrenome;
     }
 
-    public String getCidadecliente() {
-        return cidadecliente;
+    public String getEndereco() {
+        return endereco;
     }
 
-    public void setCidadecliente(String cidadecliente) {
-        this.cidadecliente = cidadecliente;
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
     }
 
-    public String getEstadocliente() {
-        return estadocliente;
+    public String getCidade() {
+        return cidade;
     }
 
-    public void setEstadocliente(String estadocliente) {
-        this.estadocliente = estadocliente;
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
     }
 
-    public Integer getTelefonefixo() {
-        return telefonefixo;
+    public String getEstado() {
+        return estado;
     }
 
-    public void setTelefonefixo(Integer telefonefixo) {
-        this.telefonefixo = telefonefixo;
+    public void setEstado(String estado) {
+        this.estado = estado;
     }
 
-    public Integer getMobile() {
-        return mobile;
+    public String getCelular() {
+        return celular;
     }
 
-    public void setMobile(Integer mobile) {
-        this.mobile = mobile;
+    public void setCelular(String celular) {
+        this.celular = celular;
     }
 
-    public Integer getCpf() {
+    public String getCpf() {
         return cpf;
     }
 
-    public void setCpf(Integer cpf) {
+    public void setCpf(String cpf) {
         this.cpf = cpf;
     }
+
 }
