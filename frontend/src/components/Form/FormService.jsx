@@ -1,159 +1,236 @@
 import { Component, useState } from "react";
 import {
-    Grid,
-    TextField,
-    Button,
-    Card,
-    CardContent,
-    Typography,
-    FormControlLabel
-  } from "@material-ui/core";
+  Grid,
+  TextField,
+  Button,
+  Card,
+  CardContent,
+  Typography,
+} from "@material-ui/core";
 import React from "react";
-import LocalDiningIcon from '@mui/icons-material/LocalDining';
+import LocalDiningIcon from "@mui/icons-material/LocalDining";
 import "../estilo/style.css";
-import { cpfMask } from "../Validator/cpfMask";
+import ApiService from "../ApiServices/ApiService";
 
 class FormService extends Component {
- 
   constructor(props) {
     super(props);
-
-    this.state = { documentId: "" };
-    this.handlechange = this.handlechange.bind(this);
+    this.state = {
+      id: "",
+      nome: "",
+      sobrenome: "",
+      endereco: "",
+      cidade: "",
+      estado: "",
+      celular: "",
+      cpf: "",
+      nomeVazio: false,
+      sobrenomeVazio: false,
+      enderecoVazio: false,
+      cidadeVazio: false,
+      estadoVazio: false,
+      celularVazio: false,
+      cpfVazio: false,
+    };
+    this.savePedido = this.savePedido.bind(this);
   }
 
-  handlechange(e) {
-    this.setState({ documentId: cpfMask(e.target.value) });
-  }
+  savePedido = (e) => {
+    this.setState({ nomeVazio: this.state.nome === "" });
+    this.setState({ sobrenomeVazio: this.state.sobrenome === "" });
+    this.setState({ enderecoVazio: this.state.endereco === "" });
+    this.setState({ cidadeVazio: this.state.cidade === "" });
+    this.setState({ estadoVazio: this.state.estado === "" });
+    this.setState({ celularVazio: this.state.celular === "" });
+    this.setState({ cpfVazio: this.state.cpf === "" });
 
+    if (this.state.nomeVazio === false && this.state.sobrenomeVazio === false) {
+      e.preventDefault();
+
+      let pedido = {
+        id: this.state.id,
+        nome: this.state.nome,
+        sobrenome: this.state.sobrenome,
+        endereco: this.state.endereco,
+        cidade: this.state.cidade,
+        estado: this.state.estado,
+        celular: this.state.celular,
+        cpf: this.state.cpf,
+      };
+
+      ApiService.salvarPedido(pedido)
+        .then((res) => {
+          alert("Pedido salvo com sucesso");
+        })
+        .catch((err) => {
+          alert("Nao foi possivel deletar pedido");
+        });
+    }
+  };
+
+  onChange = (e) => this.setState({ [e.target.name]: e.target.value });
 
   render() {
-    const { documentId } = this.state;
+
 
     return (
-      
-        <Grid>
-          <Card
-            style={{ maxWidth: 450, padding: "20px 5px", margin: "0 auto" }}
-          >
-             <LocalDiningIcon class='fast' />
+      <Grid>
+        <Card style={{ maxWidth: 450, padding: "20px 5px", margin: "0 auto" }}>
+          <LocalDiningIcon class="fast" />
 
-            <CardContent>
-              <Typography gutterBottom variant="h5">
-                Bem Vindo, Página do Cliente
-              </Typography>
+          <CardContent>
+            <Typography gutterBottom variant="h5">
+              Bem Vindo, Página do Cliente
+            </Typography>
 
             <br />
-              <form>
-
-                <Grid container spacing={2}>
-                  <Grid xs={12} sm={6} item>
-                    <TextField
-                      placeholder="Entre com o seu nome"
-                      label="Nome"
-                      variant="outlined"
-                      fullWidth
-                      required
-                    />
-                  </Grid>
-                  <Grid xs={12} sm={6} item>
-                    <TextField
-                      placeholder="Entre com o sobrenome"
-                      label="Sobrenome"
-                      variant="outlined"
-                      fullWidth
-                      required
-                    />
-                  </Grid>
-                  <Grid xs={12} sm={6} item>
-                    <TextField
-                      type="text"
-                      placeholder="Seu endereço"
-                      label="Endereço"
-                      variant="outlined"
-                      fullWidth
-                      required
-                    />
-                  </Grid>
-                  <Grid xs={12} sm={6} item>
-                    <TextField
-                      type="number"
-                      placeholder="062 123456789"
-                      label="Celular"
-                      variant="outlined"
-                      name="mobileno"
-                      mask="000 000 0000"
-                      fullWidth
-                      required
-                    />
-                  </Grid>
-                  <Grid xs={12} sm={6} item>
-                    <TextField
-                      type="number"
-                      placeholder="CEP"
-                      label="CEP"
-                      variant="outlined"
-                      fullWidth
-                    />
-                  </Grid>
-                  <Grid xs={12} sm={6} item>
-                    <TextField
-                      maxWidth="14"
-                      type="text"
-                      placeholder="CPF"
-                      label="CPF"
-                      name="documentId"
-                      value={documentId}
-                      onChange={this.handlechange}
-                      fullWidth
-                    />
-                  </Grid>
-                  <Grid item xs={12}>
-                    <TextField
-                      type="text"
-                      placeholder="Cidade"
-                      label="Cidade"
-                      variant="outlined"
-                      fullWidth
-                    />
-                  </Grid>
-                  
-                  <Grid item xs={12}>
-                    <TextField
-                      type="text"
-                      placeholder="Estado"
-                      label="Estado"
-                      variant="outlined"
-                      fullWidth
-                    />
-                  </Grid>
-                  <Grid item xs={12}>
-                    <TextField
-                      label="O que acha de nosso serviço"
-                      multiline
-                      rows={4}
-                      placeholder="Escreva alguma coisa"
-                      variant="outlined"
-                      fullWidth
-                    />
-                  </Grid>
-    
-                  <Grid item xs={12}>
-                    <Button
-                      size="large"
-                      type="Enviar"
-                      variant="contained"
-                      back
-                      fullWidth
-                    >
-                      Enviar
-                    </Button>
-                  </Grid>
+            
+            <form onSubmit={this.savePedido}>
+              <Grid container spacing={2}>
+                <Grid xs={12} sm={6} item>
+                <TextField
+                    id="nome"
+                    autoComplete="off"
+                    name="nome"
+                    label="nome"
+                    fullWidth
+                    variant="outlined"
+                    placeholder="Nome"
+                    type="text"
+                    value={this.state.nome}
+                    onChange={this.onChange}
+                    helperText={
+                      this.state.nomeVazio ? "Preencha o campo" : null
+                    }
+                    error={this.state.nomeVazio}
+                  />
                 </Grid>
-              </form>
-            </CardContent>
-          </Card>
-        </Grid>
+                <Grid xs={12} sm={6} item>
+                  <TextField
+                    id="sobrenome"
+                    name="sobrenome"
+                    autoComplete="off"
+                    label="sobrenome"
+                    fullWidth
+                    variant="outlined"
+                    placeholder="Nome"
+                    type="text"
+                    value={this.state.sobrenome}
+                    onChange={this.onChange}
+                    helperText={
+                      this.state.sobrenomeVazio ? "Preencha o campo" : null
+                    }
+                    error={this.state.sobrenomeVazio}
+                  />
+                </Grid>
+                <Grid xs={12} sm={6} item>
+                <TextField
+                    id="endereco"
+                    name="endereco"
+                    autoComplete="off"
+                    label="endereco"
+                    fullWidth
+                    variant="outlined"
+                    type="text"
+                    value={this.state.endereco}
+                    onChange={this.onChange}
+                    helperText={
+                      this.state.enderecoVazio ? "Preencha o campo" : null
+                    }
+                    error={this.state.enderecoVazio}
+                  />
+                </Grid>
+                <Grid xs={12} sm={6} item>
+                  <TextField
+                     id="celular"
+                     name="celular"
+                     autoComplete="off"
+                     label="celular"
+                     fullWidth
+                     variant="outlined"
+                     type="number"
+                     value={this.state.celular}
+                     onChange={this.onChange}
+                     helperText={
+                       this.state.celularVazio ? "Preencha o campo" : null
+                     }
+                     error={this.state.celularVazio}
+                   />
+                </Grid>
+
+                <Grid xs={12} item>
+                  <TextField
+                     maxLength='14'
+                     id="cpf"
+                     name="cpf"
+                     autoComplete="off"
+                     label="cpf"
+                     fullWidth
+                     variant="outlined"
+                     type="text"
+                     value={this.state.cpf}
+                     onChange={this.onChange}
+                     helperText={
+                       this.state.cpfVazio ? "Preencha o campo" : null
+                     }
+                     error={this.state.cpfVazio}
+                   />
+                </Grid>
+                <Grid item xs={12}>
+                  <TextField
+                    id="cidade"
+                    name="cidade"
+                    autoComplete="off"
+                    label="cidade"
+                    fullWidth
+                    variant="outlined"
+                    type="text"
+                    value={this.state.cidade}
+                    onChange={this.onChange}
+                    helperText={
+                      this.state.cidadeVazio ? "Preencha o campo" : null
+                    }
+                    error={this.state.cidadeVazio}
+                  />
+                </Grid>
+
+                <Grid item xs={12}>
+                  <TextField
+                    id="estado"
+                    name="estado"
+                    autoComplete="off"
+                    label="estado"
+                    fullWidth
+                    variant="outlined"
+                    type="text"
+                    value={this.state.estado}
+                    onChange={this.onChange}
+                    helperText={
+                      this.state.estadoVazio ? "Preencha o campo" : null
+                    }
+                    error={this.state.estadoVazio}
+                  />
+                </Grid>
+
+                <Grid item xs={12}>
+                  <Button
+                    size="large"
+                    type="Enviar"
+                    variant="contained"
+                    back
+                    fullWidth
+                    onClick={(e) => {
+                      this.savePedido(e);
+                    }}
+                  >
+                    Enviar
+                  </Button>
+                </Grid>
+              </Grid>
+            </form>
+          </CardContent>
+        </Card>
+      </Grid>
     );
   }
 }
