@@ -16,20 +16,25 @@ import java.util.List;
 
 
 @RestController
+//é um controlador especial usado para serviços RESTFull
 @CrossOrigin(origins = "*", maxAge = 3600)
-//Anotacoes para permitir requicisoes de dominios cruzados
-//O que sao esses Dominios Cruzados
+//Anotacao para permitir requicisoes de dominios
 public class PedidoController {
 
+    //objeto  //variavel
     private PedidoService pedidoService;
 
+    // o Autowired, indica um ponto aonde a injeção automática deve ser aplicada.
     @Autowired
     public void setPedidoService(PedidoService pedidoService)
     {
         this.pedidoService = pedidoService;
     }
 
+
+    //Essa anotação é usada para mapear solicitações HTTP POST em métodos específicos de manipulador
     @PostMapping(value = "/salvar-pedido")
+    //O Request Body, onde geralmente enviamos dados que queremos gravar no servidor
     public Pedido salvar(@RequestBody Pedido pedido)
     {
         try{
@@ -40,24 +45,30 @@ public class PedidoController {
             }
             return pedido;
         }catch (PedidoBackendException ex){
+            //status 404
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, ex.getReason());
         }
     }
 
+    //Essa anotação é usada para mapear solicitações HTTP GET em métodos manipuladores específicos (axios é um manipulador)
     @GetMapping(value = "/consultar-pedido/{id}")
+    //O path é utilizado quando o valor da variável é passada diretamente na URL
     public Pedido pedido(@PathVariable Integer id){
         return pedidoService.consultar(id);
     }
 
+    //Essa anotação é usada para mapear solicitações HTTP GET em métodos manipuladores específicos (axios é um manipulador)
     @GetMapping(value = "/listar-pedidos")
     public List<Pedido> listar(){
 
+            //O list fornece uma coleção ordenada de objetos
             List<Pedido>lista = pedidoService.listar();
 
             return lista;
     }
-
-    @DeleteMapping(value = "/deletar-pedido/{id}")
+   //Esta anotação é usada para mapear solicitações HTTP DELETE em métodos manipuladores
+    @DeleteMapping(value = "/excluir-pedido/{id}")
+    //O path é utilizado quando o valor da variável é passada diretamente na URL
     public void excluir(@PathVariable Integer id){
         //Vai exlcuir pelo id
         pedidoService.excluir(id);

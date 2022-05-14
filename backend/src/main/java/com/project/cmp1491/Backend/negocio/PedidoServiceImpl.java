@@ -10,7 +10,7 @@ import java.util.List;
 import com.project.cmp1491.Backend.persistencia.PedidoRespository;
 
 @Component
-//Componente gerenciado pelo Spring
+//ele será responsável por um Bean que representa uma entidade
 @Transactional
 //Faz o controle de transacao em cada metodo
 public class PedidoServiceImpl implements PedidoService{
@@ -24,11 +24,12 @@ public class PedidoServiceImpl implements PedidoService{
     }
 
     @Override
+    //Ele é uma forma de garantir que você está sobrescrevendo um método
     public Pedido incluir(Pedido pedido) {
         try{
             repository.save(pedido);
-            //Metodo da persistencia que salva o pedido no banco de dados
-            //E vai retornar o pedido
+            //Metodo de salvar
+
             return pedido;
         }catch (Exception err){
             throw new PedidoBackendException("Nao foi possivel incluir");
@@ -36,38 +37,47 @@ public class PedidoServiceImpl implements PedidoService{
         }
     }
 
+    //Ele é uma forma de garantir que você está sobrescrevendo um método
     @Override
-    //Metodo listar que lista todos usuarios
+    //Metodo listar que lista todos clientes
     public List<Pedido> listar() {
         try{
-            // O list é uma biblioteca que mapea a entidade Pedido
+            // O list é uma biblioteca que mapea a entidade Cliente
             return (List<Pedido>)this.repository.findAll();
         }catch (Exception err){
             throw new PedidoBackendException("Nao foi possivel listar");
         }
     }
 
+    //Ele é uma forma de garantir que você está sobrescrevendo um método
     @Override
+    //Metodo para realizar uma consulta de todos os clientes
     public Pedido consultar(Integer id) {
-        return null;
-    }
-
-
-    @Override
-    public void alterar(Pedido pedido) {
         try{
-
-        }catch (Exception err){
-
+            return this.repository.findById(id).get();
+        }catch(Exception err){
+            throw new PedidoBackendException("Nao foi possivel consultar");
         }
     }
 
+    //Ele é uma forma de garantir que você está sobrescrevendo um método
     @Override
+    //Metodo para alterar o pedido
+    public void alterar(Pedido pedido) {
+        try{
+            repository.save(pedido);
+        }catch (Exception err){
+            throw new PedidoBackendException("Nao foi possivel alterar");
+        }
+    }
+    //Ele é uma forma de garantir que você está sobrescrevendo um método
+    @Override
+    //Metodo para excluir o pedido
     public void excluir(Integer id) {
             try{
-
+                repository.deleteById(id);
             }catch (Exception err){
-
+                throw new PedidoBackendException("Nao foi possivel excluir" + id + "!");
             }
       }
 }

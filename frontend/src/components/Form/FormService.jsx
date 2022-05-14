@@ -13,8 +13,11 @@ import "../estilo/style.css";
 import ApiService from "../ApiServices/ApiService";
 
 class FormService extends Component {
+  //o props também é objeto
   constructor(props) {
+      //É UM METODO PARA INICIALIZAR O ESTADO DE UM OBJETO EM UMA CLASSE
     super(props);
+      //O STATE SERVE PARA GUARDAR INFORMAÇÕES QUE INFLUENCIAM NO RESULTADO DA RENDERIZAÇÃO
     this.state = {
       id: "",
       nome: "",
@@ -32,9 +35,12 @@ class FormService extends Component {
       celularVazio: false,
       cpfVazio: false,
     };
+    //PARA QUE UM METODO DE CLASSE SEJA PASSADO EM PROPS USAMOS O THIS
+    //O método bind() cria uma nova função que, com uma sequência determinada de argumentos precedendo quaisquer outros que sejam fornecidos quando a nova função é chamada.
     this.savePedido = this.savePedido.bind(this);
   }
 
+  //Essa nova funcao pode ser chamada aqui com seus argumentos
   savePedido = (e) => {
     this.setState({ nomeVazio: this.state.nome === "" });
     this.setState({ sobrenomeVazio: this.state.sobrenome === "" });
@@ -63,7 +69,7 @@ class FormService extends Component {
           alert("Pedido salvo com sucesso");
         })
         .catch((err) => {
-          alert("Nao foi possivel deletar pedido");
+          alert("Nao foi possivel inserir pedido");
         });
     }
   };

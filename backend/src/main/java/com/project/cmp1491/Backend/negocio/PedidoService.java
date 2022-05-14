@@ -5,11 +5,11 @@ import com.project.cmp1491.Backend.entidade.Pedido;
 import java.util.List;
 
 public interface PedidoService {
-    //Metodo visiveis ao controle com as operacoes de negocio
+    //Metodo visiveis
     public Pedido incluir(Pedido pedido);
-    //Metodo visivel ao controle com as operacoes de negocio
+    //Metodo visivel  //O list fornece uma coleção ordenada de objetos
     public List<Pedido>listar();
-    //Metodo visivel ao controlle com as operacoes de negocio
+    //Metodo visivel
     public Pedido consultar(Integer id);
     //...
     public void alterar(Pedido pedido);
