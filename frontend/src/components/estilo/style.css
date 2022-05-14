@@ -6,3 +6,23 @@
     margin-top: 8px;
     width: 100px;
 }
+
+.list-group{
+    margin-left: 200px;
+}
+
+.title{
+    margin-left: 150px;
+}
+
+
+#box{
+    width: 100px;
+}
+
+#search{
+    margin: 0 auto;
+    display: inline-block;
+    margin-left: 350px;
+    margin-top: 150px
+}
