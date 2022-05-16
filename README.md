@@ -1,5 +1,9 @@
 # Projeto-Desenvolvimento-Software-Web
 
+## O objetivo ##
+
+<p> O objetivo deste trabalho consiste em salvar o pedido do cliente, nele podemos listar, consultar, e excluir </p>
+
 ## PALAVRAS CHAVES 
 
 *npm
