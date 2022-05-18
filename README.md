@@ -62,6 +62,21 @@ Obs.: Acredito que todos ja devem saber como clonar um projeto, então não há 
         }
     }
 
+## Exemplos de uma funcao da Camada de negoócio
+
+      @Override
+      //Ele é uma forma de garantir que você está sobrescrevendo um método
+      public Pedido incluir(Pedido pedido) {
+        try{
+            repository.save(pedido);
+            //Metodo de salvar
+
+            return pedido;
+        }catch (Exception err){
+            throw new PedidoBackendException("Nao foi possivel incluir");
+            //Vai retornar um error quando nao for incluido
+        }
+    }
 
 
   
