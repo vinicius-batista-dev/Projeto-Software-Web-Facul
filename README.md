@@ -32,17 +32,35 @@ Obs.: Acredito que todos ja devem saber como clonar um projeto, então não há 
   
  ### Features
  
-## Client
 - [x] Cadastro do cliente
 - [x] Json do cadastro do cliente
 - [ ] Cadastro do pedido
 
-## Rest
+## Arquitetura do projeto
 - [x] controller
 - [x] entidade
 - [x] negocio
 - [x] persistencia
-- [x] util
+- [x] util7
+
+## Exemplos de funções no controller
+
+    @PostMapping(value = "/salvar-pedido")
+    //O Request Body, onde geralmente enviamos dados que queremos gravar no servidor
+    public Pedido salvar(@RequestBody Pedido pedido)
+    {
+        try{
+            if(pedido.getId() == null){
+                pedido = pedidoService.incluir(pedido);
+            }else{
+                pedidoService.alterar(pedido);
+            }
+            return pedido;
+        }catch (PedidoBackendException ex){
+            //status 404
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, ex.getReason());
+        }
+    }
 
 
 
