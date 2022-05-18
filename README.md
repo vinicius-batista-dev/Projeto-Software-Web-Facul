@@ -36,13 +36,6 @@ Obs.: Acredito que todos ja devem saber como clonar um projeto, então não há 
 - [x] Json do cadastro do cliente
 - [ ] Cadastro do pedido
 
-## Arquitetura do projeto
-- [x] controller
-- [x] entidade
-- [x] negocio
-- [x] persistencia
-- [x] util7
-
 ## Exemplos de funções no controller
 
     @PostMapping(value = "/salvar-pedido")
