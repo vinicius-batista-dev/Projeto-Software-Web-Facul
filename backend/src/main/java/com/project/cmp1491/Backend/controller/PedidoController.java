@@ -16,7 +16,7 @@ import java.util.List;
 
 
 @RestController
-//é um controlador especial usado para serviços RESTFull
+
 @CrossOrigin(origins = "*", maxAge = 3600)
 //Anotacao para permitir requicisoes de dominios
 public class PedidoController {
